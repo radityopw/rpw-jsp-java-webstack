@@ -25,7 +25,7 @@ Seluruh konfigurasi ini memungkinkan developer untuk fokus pada kode aplikasi ta
 ## Struktur Direktori
 
 Berikut adalah struktur dasar direktori dari proyek ini:
-
+```
 .
 ├── ROOT/
 │   ├── WEB-INF/
@@ -37,7 +37,7 @@ Berikut adalah struktur dasar direktori dari proyek ini:
 │   │   └── web.xml
 │   └── index.jsp
 └── compose.yml
-
+```
 
 * **`ROOT/`**: Direktori ini adalah **web aplikasi** Tomcat Anda. File `.jsp` dan `.java` Anda ditempatkan di sini. Direktori ini di-mount ke dalam kontainer Tomcat, yang memungkinkan perubahan kode langsung tercermin saat kontainer berjalan.
 * **`compose.yml`**: File Docker Compose yang mendefinisikan dan mengelola semua layanan dalam proyek.
@@ -54,7 +54,7 @@ Pastikan Anda telah menginstal **Docker** dan **Docker Compose** di sistem Anda.
 
 1.  **Clone repositori ini**:
     ```bash
-    git clone [https://github.com/nama-pengguna/nama-repositori.git](https://github.com/nama-pengguna/nama-repositori.git)
+    git clone [https://github.com/radityopw/rpw-jsp-java-webstack](https://github.com/radityopw/rpw-jsp-java-webstack)
     cd nama-repositori
     ```
 
