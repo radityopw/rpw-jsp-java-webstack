@@ -54,7 +54,7 @@ Pastikan Anda telah menginstal **Docker** dan **Docker Compose** di sistem Anda.
 
 1.  **Clone repositori ini**:
     ```bash
-    git clone [https://github.com/radityopw/rpw-jsp-java-webstack](https://github.com/radityopw/rpw-jsp-java-webstack)
+    git clone https://github.com/radityopw/rpw-jsp-java-webstack.git
     cd nama-repositori
     ```
 
