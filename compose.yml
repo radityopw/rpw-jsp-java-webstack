@@ -1,0 +1,45 @@
+services:
+  tomcat:
+    image: tomcat:jdk21
+    container_name: rpw-tomcat-webstack
+    ports:
+      - "8080:8080"
+    volumes:
+      - D:\\temp\\rpw-jsp-java-webstack\\ROOT:/usr/local/tomcat/webapps/ROOT
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.4
+    container_name: rpw-mysql-database
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_DATABASE: mydatabase
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+
+  minio:
+    image: minio/minio:latest
+    container_name: rpw-minio-storage
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadminpassword
+    volumes:
+      - minio_data:/data
+    command: server --console-address ":9001" /data
+    restart: unless-stopped
+  
+  memcached:
+    image: memcached:1.6
+    container_name: rpw-memcached-cache
+    volumes:
+      - memcached_data:/var/lib/memcached
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+  minio_data:
+  memcached_data:
