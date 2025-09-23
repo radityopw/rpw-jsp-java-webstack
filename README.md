@@ -25,15 +25,13 @@ Seluruh konfigurasi ini memungkinkan developer untuk fokus pada kode aplikasi ta
 ## Struktur Direktori
 
 Berikut adalah struktur dasar direktori dari proyek ini:
-
-.
 ├── ROOT/
 │   ├── WEB-INF/
 │   │   ├── classes/
 │   │   │   └── web/
-│   │   │       └── ...
+│   │   │       └── (file .java Anda)
 │   │   ├── lib/
-│   │   │   └── ... (jar files for MySQL, MinIO, Memcached)
+│   │   │   └── (library .jar Anda)
 │   │   └── web.xml
 │   └── index.jsp
 └── compose.yml
