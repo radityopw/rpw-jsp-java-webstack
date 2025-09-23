@@ -25,16 +25,19 @@ Seluruh konfigurasi ini memungkinkan developer untuk fokus pada kode aplikasi ta
 ## Struktur Direktori
 
 Berikut adalah struktur dasar direktori dari proyek ini:
+
+.
 ├── ROOT/
 │   ├── WEB-INF/
 │   │   ├── classes/
 │   │   │   └── web/
-│   │   │       └── (file .java Anda)
+│   │   │       └── ...
 │   │   ├── lib/
-│   │   │   └── (library .jar Anda)
+│   │   │   └── ...
 │   │   └── web.xml
 │   └── index.jsp
 └── compose.yml
+
 
 * **`ROOT/`**: Direktori ini adalah **web aplikasi** Tomcat Anda. File `.jsp` dan `.java` Anda ditempatkan di sini. Direktori ini di-mount ke dalam kontainer Tomcat, yang memungkinkan perubahan kode langsung tercermin saat kontainer berjalan.
 * **`compose.yml`**: File Docker Compose yang mendefinisikan dan mengelola semua layanan dalam proyek.
@@ -55,13 +58,22 @@ Pastikan Anda telah menginstal **Docker** dan **Docker Compose** di sistem Anda.
     cd nama-repositori
     ```
 
-2.  **Jalankan aplikasi dengan Docker Compose**:
+2.  **Kompilasi kode Java**:
+    Sebelum menjalankan aplikasi, Anda harus mengkompilasi file Java. Pindah ke direktori `classes` dan jalankan perintah kompilasi:
+    ```bash
+    cd ROOT/WEB-INF/classes
+    javac web/*.java
+    cd ../../..
+    ```
+    Langkah ini akan menghasilkan file `.class` dari kode sumber `.java` Anda.
+
+3.  **Jalankan aplikasi dengan Docker Compose**:
     ```bash
     docker-compose -f compose.yml up -d
     ```
     Perintah ini akan membangun, membuat, dan memulai semua kontainer yang dibutuhkan (Tomcat, MySQL, MinIO, Memcached) di latar belakang (`-d`).
 
-3.  **Akses Aplikasi**:
+4.  **Akses Aplikasi**:
     Setelah kontainer berjalan, Anda dapat mengakses aplikasi JSP Anda di:
     ```
     http://localhost:8080/
