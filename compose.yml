@@ -39,6 +39,14 @@ services:
       - memcached_data:/var/lib/memcached
     restart: unless-stopped
 
+  cron:
+    image: alpine
+    container_name: rpw-crontab-scheduler
+    volumes:
+      - ./cron/crontab:/etc/crontabs/root
+    command: crond -f -L /var/log/cron.log
+    restart: unless-stopped
+
 volumes:
   mysql_data:
   minio_data:
