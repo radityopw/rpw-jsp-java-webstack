@@ -5,7 +5,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - D:\\temp\\rpw-jsp-java-webstack\\ROOT:/usr/local/tomcat/webapps/ROOT
+      - C:\\temp\\rpw-jsp-java-webstack\\ROOT:/usr/local/tomcat/webapps/ROOT
     restart: unless-stopped
 
   mysql:
